@@ -1,0 +1,16 @@
+// switch
+.el-switch {
+    --el-switch-on-color: #13ce66; 
+    --el-switch-off-color: #ff4949;
+}
+
+// 按钮
+.el-button.is-text:not(.is-disabled):hover {
+    background-color: transparent;
+    text-shadow: 0 0 10px yellow;
+}
+
+.el-button.is-text:not(.is-disabled):active,
+.el-button.is-text:not(.is-disabled):focus {
+    background-color: transparent;
+}
