@@ -1,13 +1,25 @@
 import { defineStore } from "pinia";
-import type { Env, AppConf, CondaInfo} from "./index.d";
 import { reactive } from "vue";
+import type { conda_env } from "./utils/CondaOp.d";
+
+export interface AppConf {
+  DefaultInstall: string[];
+}
+
+export interface CondaInfo {
+  conda_version: string;
+  env_vars: {
+    CONDA_ROOT: string;
+    CUDA_PATH: string;
+  };
+}
 
 export const useMainStore = defineStore("main", {
   state: () => ({
     count: 0,
     name: "Eduardo",
     // conda环境列表
-    envs: reactive([]) as Env[],
+    envs: reactive([]) as conda_env[],
     appConf: reactive({} as AppConf),
     condaInfo: reactive({} as CondaInfo),
     globalPython: "加载中",
@@ -21,8 +33,7 @@ export const useMainStore = defineStore("main", {
     },
     decrement() {
       this.count--;
-    }
+    },
   },
 });
 export { Env, AppConf, type CondaInfo };
-

@@ -56,7 +56,6 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import { useMainStore } from '../../store'
 import { useRoute } from 'vue-router';
 import type { FormInstance, FormRules } from 'element-plus'
 import { createNewEnv, type RuleForm } from './createNewEnv'
@@ -110,7 +109,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
 </script>
 
 <style lang="scss" scoped>
-@import './envsStyle.scss';
 
 .env-page-container {
     height: calc(100vh - 55px);

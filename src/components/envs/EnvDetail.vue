@@ -2,7 +2,7 @@
     <div class="iii-content">
         <h1>{{ route.params.name }}</h1>
         <div class="button-bar">
-            <el-button type="warning" text @click="clickGlobal">设为全局</el-button>
+            <el-button type="warning" text @click="setAsGlobal(route.params.name as string)">设为全局</el-button>
             <el-button type="warning" text @click="clickRemove">删除</el-button>
             <el-button type="warning" text @click="clickExport">导出</el-button>
             pycharm是否可见: <el-switch v-model="pycharmVisible" class="ml-2" inline-prompt active-text="Yes" inactive-text="No"
@@ -42,19 +42,18 @@ import { removeCurEnv } from './removeCurEnv'
 import { exportCurEnv } from './exportCurEnv'
 import { setAsGlobal } from './setAsGlobal'
 import { onInstall } from './onInstall'
+import { ElMessage, ElMessageBox } from 'element-plus'
+
+const route = useRoute();
+console.log("props", route.params.name)
 
 const packageFrom = ref({
     packageName: ""
 })
 const fuzzSearchPackage = ref("")
 const pycharmVisible = ref(false)
-const route = useRoute();
-console.log("props", route.params.name)
-
 const tableData = reactive([] as envPackage[])
 const tableDataNum = ref(0)
-
-import { ElMessage, ElMessageBox } from 'element-plus'
 
 const clickRemove = () => {
     ElMessageBox.confirm(
@@ -78,7 +77,7 @@ const clickRemove = () => {
 }
 
 const clickGlobal = () => {
-
+    
 }
 
 const clickExport = () => {
@@ -91,16 +90,3 @@ function init() {
 
 init()
 </script>
-
-<style lang='scss' scoped>
-@import './envsStyle.scss';
-
-.iii-content {
-    width: 70%;
-
-    .package-form {
-        display: flex;
-        justify-content: space-between;
-    }
-}
-</style>

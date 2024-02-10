@@ -9,12 +9,13 @@
   line-height: 24px;
   font-weight: 400;
 
-  color: #f6f6f6;
-  background-color: #0f0f0f;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+.debug {
+  background-color: brown !important;
 }

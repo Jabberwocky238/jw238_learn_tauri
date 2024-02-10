@@ -42,6 +42,26 @@
             "name": "where",
             "cmd": "where",
             "args": [{ "validator": "\\S+" }]
+          },
+          {
+            "name": "setx",
+            "cmd": "setx",
+            "args": [{ "validator": ".+" },{ "validator": ".+" }]
+          },
+          {
+            "name": "echo",
+            "cmd": "echo",
+            "args": [{ "validator": ".+" }]
+          },
+          {
+            "name": "set",
+            "cmd": "set",
+            "args": [{ "validator": ".+" }]
+          },
+          {
+            "name": "mklink",
+            "cmd": "mklink",
+            "args": [{ "validator": ".+" },{ "validator": ".+" },{ "validator": ".+" }]
           }
         ]
       },

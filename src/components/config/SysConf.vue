@@ -22,12 +22,3 @@ import DefaultInstall from './DefaultInstall.vue'
 
 </script>
 
-<style lang="scss" scoped>
-@import "base/configStyle.scss";
-.sys-conf {
-  width: 100%;
-  background: brown;
-  padding: 20px;
-  box-sizing: border-box;
-}
-</style>

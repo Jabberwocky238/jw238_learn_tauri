@@ -8,14 +8,52 @@ fn greet(name: &str) -> String {
 }
 
 // #[tauri::command]
-// fn conda_command(command: &str) -> String {
+// fn set_global(path: &str) -> String {
 //     let output = std::process::Command::new("cmd")
-//         .args(["/C", command])
+//         .args(["/C", "mklink", "/J", "C:\\PythonRoot", path])
 //         .output()
-//         .expect("conda wrong");
+//         .expect("set_global wrong");
+    
 //     let output_str = match String::from_utf8(output.stdout) {
 //         Ok(output) => output,
-//         Err(e) => return "ERROR".to_owned(), // or handle it appropriately
+//         Err(e) => {
+//             println!("{}", e);
+//             return "set_global wrong".to_owned()
+//         }, // or handle it appropriately
+//     };
+//     output_str
+// }
+
+// #[tauri::command]
+// fn get_path() -> String {
+//     let output = std::process::Command::new("cmd")
+//         .args(["/C", "echo", "%PATH%"])
+//         .output()
+//         .expect("get_path wrong");
+    
+//     let output_str = match String::from_utf8(output.stdout) {
+//         Ok(output) => output,
+//         Err(e) => {
+//             println!("{}", e);
+//             return "get_path wrong".to_owned()
+//         }, // or handle it appropriately
+//     };
+//     output_str
+// }
+
+// #[tauri::command]
+// fn aapend_path() -> String {
+//     let output = std::process::Command::new("cmd")
+//         .args(["/C", "echo", "%PATH%"])
+//         .output()
+//         .expect("get_path wrong");
+    
+//     let output_str = match String::from_utf8(output.stdout) {
+//         Ok(output) => output,
+//         Err(e) => {
+//             println!("{}", e);
+//             return "get_path wrong".to_owned()
+//         }, // or handle it appropriately
 //     };
 //     output_str
 // }
