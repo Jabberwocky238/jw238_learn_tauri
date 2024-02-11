@@ -57,11 +57,6 @@
             "name": "set",
             "cmd": "set",
             "args": [{ "validator": ".+" }]
-          },
-          {
-            "name": "mklink",
-            "cmd": "mklink",
-            "args": [{ "validator": ".+" },{ "validator": ".+" },{ "validator": ".+" }]
           }
         ]
       },

@@ -2,6 +2,7 @@
     <el-row>
         <el-col :xs="7" :sm="7" :md="7" :lg="4" :xl="4">
             <el-button @click="add">Add Item</el-button>
+            <el-button @click="create_env">create</el-button>
             <el-button @click="onDelete">Delete Item</el-button>
             <el-scrollbar max-height="400px">
                 <el-button type="primary" v-for="item in store.envs" :key="item.name" @click="visible = item.name"
@@ -15,7 +16,8 @@
         </el-col>
         <el-col :xs="17" :sm="17" :md="17" :lg="20" :xl="20">
             <EnvInfo v-for="item in store.envs" :key="item.name" :env="item"
-                :style="visible == item.name ? CSSshow : CSSdont_show"></EnvInfo>
+                v-show="visible == item.name"></EnvInfo>
+            <CreateEnvDrawer :openDrawer="drawer"></CreateEnvDrawer>
         </el-col>
     </el-row>
 </template>
@@ -24,15 +26,16 @@
 import { CSSProperties, ref } from 'vue'
 const count = ref(3)
 import EnvInfo from './pages/EnvInfo.vue'
+import CreateEnvDrawer from './pages/CreateEnvDrawer.vue'
 import { useMainStore } from '../store';
+
 const store = useMainStore();
 const visible = ref("base")
+const drawer = ref(false)
 
-const CSSshow: CSSProperties = {
-    display: 'block'
-}
-const CSSdont_show: CSSProperties = {
-    display: 'none'
+const create_env = () => {
+    count.value++
+    drawer.value = drawer.value ? false : true
 }
 
 const add = () => {

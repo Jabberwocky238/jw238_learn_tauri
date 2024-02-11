@@ -42,7 +42,6 @@ export class CmdShell {
     if (typeof this.command === "undefined")
       throw Error("[class CmdShell] [spawn] command undefined");
     const child = await this.command.spawn();
-    
     return child.pid;
   }
 }

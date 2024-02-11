@@ -36,4 +36,3 @@ export const useMainStore = defineStore("main", {
     },
   },
 });
-export { Env, AppConf, type CondaInfo };

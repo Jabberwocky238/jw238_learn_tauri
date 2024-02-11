@@ -5,11 +5,17 @@
         <p v-for="item in count" :key="item" class="scrollbar-demo-item">
             {{ item }}
         </p>
+        <OptionItem info="conda path">
+            <p>{{ 'undefined' }}</p>
+        </OptionItem>
     </el-scrollbar>
 </template>
   
 <script lang="ts" setup>
 import { ref } from 'vue'
+import OptionItem from './pages/OptionItem.vue'
+import { useMainStore } from '../store';
+const store = useMainStore();
 const count = ref(3)
 
 const add = () => {

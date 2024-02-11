@@ -5,6 +5,7 @@
         <el-button @click="">AsGlobal</el-button>
         <el-button @click="clickRemove">Delete</el-button>
         <el-button @click="">Export</el-button>
+        <el-button @click="">Load</el-button>
         <el-button @click="Debug">Debug</el-button>
         <el-button @click="packges">packges</el-button>
         <el-input v-model="fuzzSearchPackage" placeholder="fuzzSearchPackage" />
@@ -35,7 +36,7 @@ import { onMounted } from 'vue';
 // import EnvInfoItem from './EnvInfoItem.vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref, reactive } from 'vue'
-import { get_env_package, type env_package, install_package } from '../../utils/CondaOp'
+import { CondaOp ,type env_package } from '../../utils/CondaOp'
 const props = defineProps<{
     env: {
         name: String,
@@ -64,7 +65,7 @@ const clickRemove = () => {
                 type: 'success',
                 message: 'Delete completed',
             })
-            // removeCurEnv(route.params.name as string)
+            CondaOp.conda_remove(props.env.name as string)
         })
         .catch(() => {
 
@@ -72,11 +73,11 @@ const clickRemove = () => {
 }
 
 const packges = () => {
-    get_env_package(props.env.name, tableData, tableDataNum, tableLoading)
+    CondaOp.conda_list_n(props.env.name, tableData, tableDataNum, tableLoading)
 }
 
 const addPackage = () => {
-    install_package(props.env.name, packageForm.value.packageName)
+    CondaOp.conda_install(props.env.name, packageForm.value.packageName)
 }
 
 const Debug = () => {

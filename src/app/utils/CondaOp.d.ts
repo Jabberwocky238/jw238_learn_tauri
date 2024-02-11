@@ -10,4 +10,4 @@ interface env_package {
   channel: string;
 }
 
-export { conda_env ,env_package};
+export { conda_env, env_package };
