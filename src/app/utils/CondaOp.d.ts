@@ -3,4 +3,11 @@ interface conda_env {
   name: string;
 }
 
-export { conda_env };
+interface env_package {
+  version: string;
+  name: string;
+  build: string;
+  channel: string;
+}
+
+export { conda_env ,env_package};

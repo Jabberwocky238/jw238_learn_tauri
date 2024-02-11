@@ -16,6 +16,7 @@ import { ElLoading } from 'element-plus';
 import type { TabsPaneContext } from 'element-plus'
 import { ref } from 'vue'
 const activeName = ref('first')
+import { conda_env_list } from './utils/CondaOp.ts'
 
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   // console.log(tab, event)
@@ -23,6 +24,7 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
 
 const initApp = () => {
   const loadingInstance = ElLoading.service({ fullscreen: true })
+  conda_env_list()
   loadingInstance.close()
 }
 initApp()

@@ -4,7 +4,7 @@
             <el-button @click="add">Add Item</el-button>
             <el-button @click="onDelete">Delete Item</el-button>
             <el-scrollbar max-height="400px">
-                <el-button type="primary" v-for="item in store.envs" :key="item.name" @click="checkEnviroment(item.name)"
+                <el-button type="primary" v-for="item in store.envs" :key="item.name" @click="visible = item.name"
                     class="el-button-env-item scrollbar-demo-item">
                     {{ item.name }}
                 </el-button>
@@ -14,18 +14,26 @@
             </el-scrollbar>
         </el-col>
         <el-col :xs="17" :sm="17" :md="17" :lg="20" :xl="20">
-            <div class="grid-content ep-bg-purple"></div>
-            <el-button @click="conda_env_list">conda_env_list</el-button>
+            <EnvInfo v-for="item in store.envs" :key="item.name" :env="item"
+                :style="visible == item.name ? CSSshow : CSSdont_show"></EnvInfo>
         </el-col>
     </el-row>
 </template>
   
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { CSSProperties, ref } from 'vue'
 const count = ref(3)
-import { conda_env_list } from '../utils/CondaOp.ts'
+import EnvInfo from './pages/EnvInfo.vue'
 import { useMainStore } from '../store';
 const store = useMainStore();
+const visible = ref("base")
+
+const CSSshow: CSSProperties = {
+    display: 'block'
+}
+const CSSdont_show: CSSProperties = {
+    display: 'none'
+}
 
 const add = () => {
     count.value++
